@@ -13,6 +13,9 @@ public class Player1 {
 		this.name = name;
 		this.weapon = weapon;
 		this.health = health;
+		if(health < 0 || health > 100) {
+			this.health=100;
+		} else this.health = health;
 	}
 	
 
@@ -22,7 +25,7 @@ public class Player1 {
 		if (this.health <= 0) { 
 			this.health = 0;
 		}
-		System.out.println("Got hit by Gun1. Health is Reduced by 30" + " " + 
+		System.out.println(getName() + " Got hit by Gun1. Health is Reduced by 30" + " " + 
 					" New Health is " + this.health);
 		 if (this.health == 0) { 
 			 System.out.println(getName() + " is Dead");
@@ -36,14 +39,28 @@ public class Player1 {
 				if (this.health <= 0) { 
 					this.health = 0;
 				}
-				System.out.println("Got hit by Gun1. Health is Reduced by 30" + " " + 
+				System.out.println(getName() + " Got hit by Gun1. Health is Reduced by 30" + " " + 
 							" New Health is " + this.health);
 				 if (this.health == 0) { 
 					 System.out.println(getName() + " is Dead");
 				 }
 			 
 		 }
-
+		 
+		 
+		 public void heal() { 
+			 
+			 if (this.health <= 0) System.out.println("Player is Dead. Heal Not Possible."); 
+			 
+		  else { 
+			  this.health=100; 
+			 System.out.println(getName() + " Healed. Health is Restored to 100!");
+			 
+			} 
+				  
+		}
+			 
+		 
 
 		 public String getName() {
 			 return name;
